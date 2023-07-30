@@ -37,8 +37,6 @@ Users should be able to:
 
 ### Links
 
-- Repository URL:  https://github.com/jwren4170/newletter-signup
-
 - Solution URL:  https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv/hub
 
 - Live Site URL: https://newletter-signup-six.vercel.app/
