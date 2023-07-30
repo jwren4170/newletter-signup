@@ -1,0 +1,276 @@
+@import './fonts.css';
+@import './reset.css';
+
+:root {
+    /* Colors-Primary */
+    --primary-tomato: hsl(4, 100%, 67%);
+    --secondary-tomato: hsl(16, 78%, 50%);
+
+    /* Neutral */
+
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+}
+
+.main {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background: var(--dark-slate-grey);
+}
+
+.wrapper {
+    max-width: 50rem;
+}
+
+.form-area-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: var(--white);
+    border-radius: 1.125rem;
+    padding: 1.25rem;
+    gap: 1.5rem;
+}
+
+.form-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .875rem;
+    margin-left: 15%;
+    font-size: .75rem;
+    color: var(--charcoal-grey);
+}
+
+.form-area h1 {
+    font-size: 2.5rem;
+}
+
+.form-area ul {
+    padding-inline-start: 1.56rem;
+}
+
+.form-area ul li {
+    list-style-image: url('../assets/images/icon-list.svg');
+    margin-block: .55rem;
+}
+
+.form-control:is(button) {
+    cursor: pointer;
+}
+
+.form label {
+    font-weight: bold;
+    font-size: .75rem;
+}
+
+input[type=email],
+button {
+    height: 3rem;
+    min-width: 100%;
+    border-radius: .325rem;
+}
+
+input[type=email]::placeholder {
+    padding-left: .75rem;
+    color: var(--grey);
+    opacity: .8;
+
+}
+
+input[type=email] {
+    border: 1px solid var(--grey);
+    padding-left: .75rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* input error styles */
+input[type=email].border-red {
+    border: #f00 solid 2px;
+}
+
+input[type=email].border-green {
+    border: #0f0 solid 2px;
+}
+
+
+
+button {
+    background: var(--dark-slate-grey);
+    color: var(--white);
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+}
+
+button:is(:hover, :focus-visible) {
+    background: linear-gradient(to right,
+            var(--primary-tomato),
+            var(--secondary-tomato));
+}
+
+/* Modal to display success message */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border-radius: .625rem;
+    z-index: 10;
+    width: 20rem;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal .wrapper {
+    max-width: 20rem;
+    border-radius: 2.125rem;
+    background: var(--white);
+}
+
+.modal img {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: .5rem;
+}
+
+.modal .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2.5rem;
+}
+
+.modal .title {
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.modal .message {
+    font-weight: 400;
+    font-size: .75rem;
+}
+
+.modal .message span {
+    font-weight: 900;
+}
+
+.modal .dismiss {
+    font-size: .75rem;
+    font-weight: 900;
+    transition: background ease-in-out 1s forward;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* laptop/pads */
+@media(width <=52.5rem) {
+    .form-area {
+        margin-left: 0;
+    }
+}
+
+/* mobile */
+@media(width <=46.25rem) {
+    .main {
+        display: flex;
+        background: var(--white);
+    }
+
+    .form-area-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0;
+        margin: 0;
+    }
+
+    .form-area {
+        white-space: normal;
+        padding-inline: 1rem;
+        font-size: .875rem;
+        gap: .375rem;
+        margin-block-end: 1rem;
+    }
+
+    .form-area h1 {
+        font-size: 2.1rem;
+        margin-block-end: 1rem;
+    }
+
+    .cta picture img {
+        width: 100%;
+    }
+
+
+    /* Modal to display success message */
+    .modal {
+        display: grid;
+        place-content: center;
+        background: var(--dark-slate-grey);
+        transform: scale(0);
+    }
+
+    .modal.wrapper {
+        max-width: 20rem;
+        border: 1px red solid;
+        border-radius: 2.125rem;
+        background: var(--white);
+        border-radius: 0;
+    }
+
+    .modal img {
+        width: 3rem;
+        height: 3rem;
+        margin-top: 8.5rem;
+    }
+
+    .modal .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2.5rem;
+    }
+
+    .modal .title {
+        font-weight: 900;
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .modal .message {
+        font-weight: 400;
+        font-size: .75rem;
+    }
+
+    .modal .message span {
+        font-weight: 900;
+    }
+
+    .modal .dismiss {
+        margin-top: 13.5rem;
+        font-size: .75rem;
+        font-weight: 900;
+    }
+}
