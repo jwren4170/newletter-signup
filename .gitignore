@@ -16,4 +16,3 @@
 .prettierignore
 download_assets/
 git_token
-*.md
